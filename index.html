@@ -63,10 +63,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px 0;
+            padding: 25px 0;
             background-color: var(--primary-color);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            flex-wrap: wrap;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -82,8 +81,32 @@
             padding: 0 20px;
         }
         
+        .nav-items-wrapper {
+            display: flex;
+            max-width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: thin; /* Firefox */
+            scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+        }
+    
+        /* Hide scrollbar for Chrome, Safari */
+        .nav-items-wrapper::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .nav-items-wrapper::-webkit-scrollbar-track {
+            background: transparent;
+        }
+    
+        .nav-items-wrapper::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+    
         .nav-items {
             display: flex;
+            flex-direction: row;
             align-items: center;
         }
         
@@ -94,12 +117,10 @@
             text-decoration: none;
             border-radius: 25px;
             font-size: 14px;
-            white-space: nowrap;
             transition: var(--transition);
             font-weight: 500;
             letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
+            white-space: nowrap;
         }
         
         .nav-item:hover:not(.active) {
@@ -107,41 +128,15 @@
             transform: translateY(-2px);
         }
         
-        .nav-item::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--white);
-            transform: translateX(-100%);
-            transition: var(--transition);
-        }
-        
-        .nav-item:hover::before {
-            transform: translateX(0);
-        }
-        
-        .nav-item.active {
-            background-color: var(--white);
-            color: var(--primary-color);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            font-weight: 600;
-        }
-        
-        .nav-item.active::before {
-            display: none;
-        }
-        
         .menu-toggle {
             display: none;
             background: none;
             border: none;
             cursor: pointer;
-            width: 35px;
-            height: 35px;
-            position: relative;
+            width: 40px;
+            height: 65px;
+            right: 5%;
+            position: absolute;
             z-index: 200;
         }
         
@@ -331,7 +326,6 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(45deg, #ff0a0a, #ff6b6b, #ff9e9e, #ff0a0a);
             background-size: 400% 400%;
             z-index: -1;
             border-radius: 52px;
@@ -361,7 +355,7 @@
         .search-btn {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            background: #d4d4d8;
             border: none;
             border-radius: 50%;
             cursor: pointer;
@@ -463,7 +457,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            background: linear-gradient(135deg, #eeeeee, #ffffff);
             z-index: -1;
             clip-path: circle(0% at 50% 100%);
             transition: clip-path 0.6s cubic-bezier(0.19, 1, 0.22, 1);
@@ -509,7 +503,7 @@
         }
         
         .product-card:hover .product-content {
-            color: var(--white);
+            color: black;
         }
         
         .product-code {
@@ -520,7 +514,7 @@
         }
         
         .product-card:hover .product-code {
-            color: var(--white);
+            color: black;
         }
         
         .product-name {
@@ -537,7 +531,7 @@
         }
         
         .product-card:hover .product-name {
-            color: rgba(255, 255, 255, 0.9);
+            color: black;
         }
         
         .product-rating {
@@ -809,6 +803,9 @@
             .title-container {
                 padding: 30px 0;
             }
+            .title{
+                font-size: 30px;
+            }
             
             .section-container {
                 padding: 0 3%;
@@ -851,18 +848,21 @@
     <!-- Main wrapper -->
     <div class="wrapper" id="wrapper">
         <!-- Navigation -->
-        <nav class="nav">
+        <nav class="nav"> 
             <div class="nav-container">
-                <div class="nav-items">
-                    <a href="#" class="nav-item">Clothing & Apparel</a>
-                    <a href="#" class="nav-item active">Food & Beverages<span class="cursor">👆</span></a>
-                    <a href="#" class="nav-item">Home & Living</a>
-                    <a href="#" class="nav-item">Beauty & Skincare</a>
-                    <a href="#" class="nav-item">Tech & Gadgets</a>
-                    <a href="#" class="nav-item">Tech & Gadgets</a>
-                    <a href="#" class="nav-item">Outdoor & Sporting Goods</a>
-                    <a href="#" class="nav-item">Outdoor & Sporting Goods</a>
-                    <a href="#" class="nav-item">Outdoor & Sporting Goods</a>
+                <div class="nav-items-wrapper">
+                    <div class="nav-items">
+                        <a href="#" class="nav-item">Clothing & Apparel</a>
+                        <a href="#" class="nav-item">Food & Beverages</a>
+                        <a href="#" class="nav-item">Home & Living</a>
+                        <a href="#" class="nav-item">Beauty & Skincare</a>
+                        <a href="#" class="nav-item">Electronics</a>
+                        <a href="#" class="nav-item">Toys & Games</a>
+                        <a href="#" class="nav-item">Health & Wellness</a>
+                        <a href="#" class="nav-item">Sports & Fitness</a>
+                        <a href="#" class="nav-item">Sports & Fitness</a>
+                        <a href="#" class="nav-item">Sports & Fitness</a>
+                    </div>
                 </div>
                 <button class="menu-toggle" id="menuToggle">
                     <span class="menu-icon">☰</span>
@@ -880,7 +880,7 @@
             <div class="search-box">
                 <input type="text" class="search-input" placeholder="Search for an item">
                 <button class="search-btn">
-                    <span class="search-icon">🔍</span>
+                    <span class="search-icon"><img src="images/search.png" width="32px"></span>
                 </button>
             </div>
         </div>
@@ -896,7 +896,7 @@
                 <div class="product-card">
                     <div class="badge">Bestseller</div>
                     <div class="product-image">
-                        <img src="/api/placeholder/150/150" alt="Dell Desktop">
+                        <img src="images/dell_lap.png" alt="Dell Desktop">
                     </div>
                     <div class="product-content">
                         <p class="product-code">CA$7,199.99</p>
@@ -913,7 +913,7 @@
                 <div class="product-card">
                     <div class="badge">New</div>
                     <div class="product-image">
-                        <img src="/api/placeholder/150/150" alt="Dell Laptop">
+                        <img src="images/laotop.png" alt="Dell Laptop">
                     </div>
                     <div class="product-content">
                         <p class="product-code">CA$3,195.99</p>
@@ -930,7 +930,7 @@
                 <div class="product-card">
                     <div class="badge">Popular</div>
                     <div class="product-image">
-                        <img src="/api/placeholder/150/150" alt="Apple AirPods">
+                        <img src="images/airpods.png" alt="Apple AirPods">
                     </div>
                     <div class="product-content">
                         <p class="product-code">CA$350.00</p>
@@ -940,7 +940,7 @@
                             <span class="review-count">31,096</span>
                         </div>
                     </div>
-                    <span class="cursor">👆</span>
+                    
                     <div class="add-to-cart">+</div>
                 </div>
                 
@@ -948,7 +948,7 @@
                 <div class="product-card">
                     <div class="badge">Hot Deal</div>
                     <div class="product-image">
-                        <img src="/api/placeholder/150/150" alt="Samsung Phone">
+                        <img src="images/s25.png" alt="Samsung Phone">
                     </div>
                     <div class="product-content">
                         <p class="product-code">CA$1,859.94</p>
@@ -965,7 +965,7 @@
                 <div class="product-card">
                     <div class="badge">Limited</div>
                     <div class="product-image">
-                        <img src="/api/placeholder/150/150" alt="AMD Processor">
+                        <img src="images/processor.png" alt="AMD Processor">
                     </div>
                     <div class="product-content">
                         <p class="product-code">CA$661.03</p>
@@ -982,7 +982,7 @@
                 <div class="product-card">
                     <div class="badge">Exclusive</div>
                     <div class="product-image">
-                        <img src="/api/placeholder/150/150" alt="Sony Headphones">
+                        <img src="images/headphone.png" alt="Sony Headphones">
                     </div>
                     <div class="product-content">
                         <p class="product-code">CA$499.99</p>
@@ -996,8 +996,36 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">TOP SEARCH</h2>
+                <a href="#" class="view-all">View All <span class="view-all-icon">➔</span></a>
+            </div>
+
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="badge">Bestseller</div>
+                    <div class="product-image">
+                        <img src="images/dell_lap.png" alt="Dell Desktop">
+                    </div>
+                    <div class="product-content">
+                        <p class="product-code">CA$7,199.99</p>
+                        <p class="product-name">Dell Optiplex 7000 7420 All-in-One Computer - Intel Cor...</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="review-count">232</span>
+                        </div>
+                    </div>
+                    <div class="add-to-cart">+</div>
+                </div>
+            </div>
+
         
-        <!-- Footer -->
+        
+      
         <footer>
             <div class="footer-container">
                 <div class="footer-section">
@@ -1027,15 +1055,6 @@
                         <li class="footer-link"><a href="#">Accessibility</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">Follow Us</h3>
-                    <div class="sidebar-social">
-                        <a href="#" class="social-icon">📘</a>
-                        <a href="#" class="social-icon">🐦</a>
-                        <a href="#" class="social-icon">📸</a>
-                        <a href="#" class="social-icon">🔗</a>
-                    </div>
-                </div>
             </div>
             <div class="footer-bottom">
                 <p class="copyright">© 2023 Made By Canadians. All rights reserved.</p>
@@ -1044,6 +1063,9 @@
     </div>
     
     <!-- Sidebar Navigation -->
+
+
+    </div>
     <div class="sidebar" id="sidebar">
         <button class="close-sidebar" id="closeSidebar">×</button>
         <a href="#" class="sidebar-nav-item active">Clothing & Apparel</a>
@@ -1053,13 +1075,6 @@
         <a href="#" class="sidebar-nav-item">Tech & Gadgets</a>
         <a href="#" class="sidebar-nav-item">Outdoor & Sporting Goods</a>
         <div class="sidebar-divider"></div>
-        <div class="sidebar-social">
-            <a href="#" class="social-icon">📘</a>
-            <a href="#" class="social-icon">🐦</a>
-            <a href="#" class="social-icon">📸</a>
-            <a href="#" class="social-icon">🔗</a>
-        </div>
-    </div>
     
     <script>
         const menuToggle = document.getElementById('menuToggle');
@@ -1084,6 +1099,20 @@
             sidebar.classList.remove('active');
             overlay.classList.remove('active');
             wrapper.classList.remove('active');
+        });
+    </script>
+
+    <script>
+        const navWrapper = document.querySelector(".nav-items-wrapper");
+        const scrollLeftBtn = document.getElementById("scrollLeft");
+        const scrollRightBtn = document.getElementById("scrollRight");
+    
+        scrollLeftBtn.addEventListener("click", () => {
+            navWrapper.scrollBy({ left: -200, behavior: "smooth" });
+        });
+    
+        scrollRightBtn.addEventListener("click", () => {
+            navWrapper.scrollBy({ left: 200, behavior: "smooth" });
         });
     </script>
 </body>
