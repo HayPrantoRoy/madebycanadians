@@ -834,4 +834,14 @@
                 font-size: 12px;
             }
         }
+
+        .product-link {
+            text-decoration: none; /* Removes underline */
+            color: inherit; /* Keeps text color consistent */
+            display: block; /* Ensures the whole div is clickable */
+        }
+    
+        .product-link:hover {
+            text-decoration: none; /* Ensures no underline appears on hover */
+        }
     
