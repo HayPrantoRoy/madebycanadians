@@ -61,3 +61,42 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const quantityInput = document.querySelector(".quantity-input");
+    const plusButton = document.querySelector(".quantity-btn:nth-of-type(2)");
+    const minusButton = document.querySelector(".quantity-btn:nth-of-type(1)");
+
+    plusButton.addEventListener("click", function () {
+        quantityInput.value = parseInt(quantityInput.value) + 1;
+    });
+
+    minusButton.addEventListener("click", function () {
+        if (parseInt(quantityInput.value) > 1) {
+            quantityInput.value = parseInt(quantityInput.value) - 1;
+        }
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const colorOptions = document.querySelectorAll(".color-option");
+    const mainImage = document.querySelector(".product-gallery .main-image");
+    const activeThumbnail = document.querySelector(".thumbnail-container .thumbnail.active");
+
+    colorOptions.forEach(option => {
+        option.addEventListener("click", function () {
+            // Remove 'selected' class from all options
+            colorOptions.forEach(opt => opt.classList.remove("selected"));
+            this.classList.add("selected");
+
+            // Get the new image source from the clicked color option
+            const newImageSrc = this.querySelector("img").src;
+
+            // Update both the main image and active thumbnail
+            mainImage.src = newImageSrc;
+            activeThumbnail.src = newImageSrc;
+        });
+    });
+});
+
+
