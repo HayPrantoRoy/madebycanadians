@@ -99,4 +99,33 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+function startCountdown(hours, minutes, seconds) {
+    let totalTime = hours * 3600 + minutes * 60 + seconds; // Convert to total seconds
+    const countdownElements = document.querySelectorAll(".flash-countdown .time-box");
+
+    function updateCountdown() {
+        if (totalTime <= 0) {
+            clearInterval(timerInterval);
+            return;
+        }
+
+        totalTime--; // Reduce time by 1 second
+
+        let h = Math.floor(totalTime / 3600);
+        let m = Math.floor((totalTime % 3600) / 60);
+        let s = totalTime % 60;
+
+        // Update UI
+        countdownElements[0].textContent = h.toString().padStart(2, '0');
+        countdownElements[1].textContent = m.toString().padStart(2, '0');
+        countdownElements[2].textContent = s.toString().padStart(2, '0');
+    }
+
+    const timerInterval = setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initialize immediately
+}
+
+// Start countdown with (hours, minutes, seconds)
+startCountdown(5, 34, 27);
+
 
