@@ -7,6 +7,79 @@
     <link rel="icon" type="image/x-icon" href="images/logo.png">
     <title>Made By Canadians</title>
     <link rel="stylesheet" href="css/main.css">
+
+    <style>
+        .cart-container {
+            position: absolute; /* Keeps position absolute */
+            right: 3%;
+            top: 5.4%;
+            width: 45px;
+            cursor: pointer;
+            display: inline-block; /* Ensures it's treated like a link */
+    cursor: pointer; /* Shows a pointer cursor to indicate it's clickable */
+    text-decoration: none; /* Prevents default underline on link */
+        }
+        
+        .cart-container img {
+            width: 100%;
+            display: block;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: red;
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+        
+        /* Responsive Adjustments */
+        @media screen and (max-width: 768px) {
+            .cart-container {
+                position: absolute; /* Keep absolute positioning */
+                right: 6%;
+                top: 9.5%;
+                width: 35px; /* Reduce size for tablets */
+            }
+        
+            .cart-count {
+                font-size: 12px;
+                width: 22px;
+                height: 22px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .cart-container {
+                position: absolute; /* Keep absolute positioning */
+                right: 5%;
+                top: 3%;
+                width: 35px; /* Reduce size for mobile */
+            }
+        
+            .cart-count {
+                font-size: 10px;
+                width: 22px;
+                height: 22px;
+            }
+        }
+        
+        
+        
+        
+        
+    </style>
 </head>
 
 <body>
@@ -38,14 +111,22 @@
             <h1 class="title">Made By Canadians</h1>
         </div>
 
+       
+
         <div class="search-container">
             <div class="search-box">
                 <input type="text" class="search-input" placeholder="Search for an item">
                 <button class="search-btn">
-                    <span class="search-icon"><img src="images/search.png" width="32px"></span>
+                  <a href="Search.html">  <span class="search-icon"><img src="images/search.png" width="32px"></span></a>
                 </button>
             </div>
         </div>
+
+        <a href="cart.html"><div class="cart-container">
+            <img src="images/shopping-cart (1).png" alt="Cart">
+            <span class="cart-count">0</span>
+        </div></a>
+        
 
 
         <div class="section-container">
@@ -237,4 +318,12 @@
         <div class="sidebar-divider"></div>
 </body>
 <script src="js/main.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        document.querySelector('.cart-count').textContent = cartItems.length;
+    });
+</script>
+
 </html>

@@ -264,7 +264,6 @@
             color: transparent;
             -webkit-background-clip: text;
             background-clip: text;
-            animation: shine 3s linear infinite, float 6s ease-in-out infinite;
             text-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             position: relative;
             z-index: 1;
@@ -844,4 +843,5 @@
         .product-link:hover {
             text-decoration: none; /* Ensures no underline appears on hover */
         }
-    
+
+        
