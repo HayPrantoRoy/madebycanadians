@@ -224,13 +224,7 @@
                 year: 'numeric', month: 'long', day: 'numeric'
             });
 
-            // Retrieve and display shipping details
-            const shippingInfo = JSON.parse(localStorage.getItem('shippingInfo')) || {};
-            document.getElementById('shippingName').textContent = shippingInfo.fullName || 'Not Provided';
-            document.getElementById('shippingAddress').textContent = shippingInfo.streetAddress || 'Not Provided';
-            document.getElementById('shippingCity').textContent = `${shippingInfo.city || ''}, ${shippingInfo.state || ''} ${shippingInfo.zipCode || ''}`.trim();
-            document.getElementById('shippingCountry').textContent = shippingInfo.country || 'Not Provided';
-            document.getElementById('shippingEmail').textContent = shippingInfo.email || 'Not Provided';
+           
 
             // Retrieve payment method
             const paymentMethod = localStorage.getItem('paymentMethod') || 'cod';
