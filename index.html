@@ -8,134 +8,61 @@
     <title>Made By Canadians</title>
     <link rel="stylesheet" href="css/main.css">
 
-    <style>
-        .cart-container {
-            position: absolute; /* Keeps position absolute */
-            right: 3%;
-            top: 5.4%;
-            width: 45px;
-            cursor: pointer;
-            display: inline-block; /* Ensures it's treated like a link */
-    cursor: pointer; /* Shows a pointer cursor to indicate it's clickable */
-    text-decoration: none; /* Prevents default underline on link */
-        }
-        
-        .cart-container img {
-            width: 100%;
-            display: block;
-            cursor: pointer;
-        }
-        
-        .cart-count {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: red;
-            color: white;
-            font-size: 25px;
-            font-weight: bold;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            cursor: pointer;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            border: 2px solid white;
-        }
-        
-        /* Responsive Adjustments */
-        @media screen and (max-width: 768px) {
-            .cart-container {
-                position: absolute; /* Keep absolute positioning */
-                right: 6%;
-                top: 9.5%;
-                width: 35px; /* Reduce size for tablets */
-            }
-        
-            .cart-count {
-                font-size: 12px;
-                width: 22px;
-                height: 22px;
-            }
-        }
-        
-        @media screen and (max-width: 480px) {
-            .cart-container {
-                position: absolute; /* Keep absolute positioning */
-                right: 5%;
-                top: 3%;
-                width: 35px; /* Reduce size for mobile */
-            }
-        
-            .cart-count {
-                font-size: 10px;
-                width: 22px;
-                height: 22px;
-            }
-        }
-        
-        
-        
-        
-        
-    </style>
 </head>
 
 <body>
-    <div class="overlay" id="overlay"></div>
-    <div class="wrapper" id="wrapper">
-        <nav class="nav">
-            <div class="nav-container">
-                <div class="nav-items-wrapper">
-                    <div class="nav-items">
-                        <a href="#" class="nav-item">Clothing & Apparel</a>
-                        <a href="#" class="nav-item">Food & Beverages</a>
-                        <a href="#" class="nav-item">Home & Living</a>
-                        <a href="#" class="nav-item">Beauty & Skincare</a>
-                        <a href="#" class="nav-item">Electronics</a>
-                        <a href="#" class="nav-item">Toys & Games</a>
-                        <a href="#" class="nav-item">Tech & Getgets</a>
-                        <a href="#" class="nav-item">Sports & Fitness</a>
-                        <a href="#" class="nav-item">Outdoor & Spots</a>
-                        <a href="#" class="nav-item">costmatics</a>
-                    </div>
-                </div>
-                <button class="menu-toggle" id="menuToggle">
-                    <span class="menu-icon">☰</span>
-                </button>
-            </div>
-        </nav>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-items">
+                <a href="#" class="nav-item">Clothing & Apparel</a>
+                <a href="#" class="nav-item">Food & Beverages</a>
+                <a href="#" class="nav-item">Home & Living</a>
+                <a href="#" class="nav-item">Beauty & Skincare</a>
+                <a href="#" class="nav-item">Electronics</a>
+                <a href="#" class="nav-item">Toys & Games</a>
+                <a href="#" class="nav-item">Tech & Getgets</a>
 
-        <div class="title-container">
-            <h1 class="title">Made By Canadians</h1>
-        </div>
-
-       
-
-        <div class="search-container">
-            <div class="search-box">
-                <input type="text" class="search-input" placeholder="Search for an item">
-                <button class="search-btn">
-                  <a href="Search.html">  <span class="search-icon"><img src="images/search.png" width="32px"></span></a>
-                </button>
             </div>
         </div>
+        <button class="menu-toggle" id="menuToggle">
+            <span class="menu-icon">☰</span>
+        </button>
+        </div>
+    </nav>
 
-        <a href="cart.html"><div class="cart-container">
+    <div class="title-container">
+        <h1 class="title">Made By Canadians</h1>
+    </div>
+
+
+
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search for an item">
+            <button class="search-btn">
+                <a href="Search.html"> <span class="search-icon"><img src="images/search.png" width="32px"></span></a>
+            </button>
+        </div>
+    </div>
+
+    <a href="cart.html">
+        <div class="cart-container">
             <img src="images/shopping-cart (1).png" alt="Cart">
             <span class="cart-count">0</span>
-        </div></a>
-        
+        </div>
+    </a>
 
 
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">TRENDING</h2>
-                <a href="#" class="view-all">View All <span class="view-all-icon">➔</span></a>
-            </div>
-            <div class="product-grid">
-                <a href="Singel_product.html" class="product-link">
+
+    <div class="section-container">
+        <div class="section-header">
+            <h2 class="section-title">TRENDING</h2>
+            <a href="#" class="view-all">View All <span class="view-all-icon">➔</span></a>
+        </div>
+
+
+        <div class="product-grid">
+            <a href="Singel_product.html" class="product-link">
                 <div class="product-card">
                     <div class="badge">Bestseller</div>
                     <div class="product-image">
@@ -149,31 +76,29 @@
                             <span class="review-count">232</span>
                         </div>
                     </div>
-                    <div class="add-to-cart">+</div>
+                    <div class="add-to-cart action-btn">+</div>
                 </div>
-                </a>
+            </a>
 
-
-                <a href="Singel_product.html" class="product-link">
-                    <div class="product-card">
-                        <div class="badge">New</div>
-                        <div class="product-image">
-                            <img src="images/laotop.png" alt="Dell Laptop">
-                        </div>
-                        <div class="product-content">
-                            <p class="product-code">CA$3,195.99</p>
-                            <p class="product-name">Dell 14" Latitude 5440 Intel Core i5 Ultra 7 Max Laptop -...</p>
-                            <div class="product-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="review-count">174</span>
-                            </div>
-                        </div>
-                        <div class="add-to-cart">+</div>
+            <a href="Singel_product.html" class="product-link">
+                <div class="product-card">
+                    <div class="badge">New</div>
+                    <div class="product-image">
+                        <img src="images/laotop.png" alt="Dell Laptop">
                     </div>
-                </a>
+                    <div class="product-content">
+                        <p class="product-code">CA$3,195.99</p>
+                        <p class="product-name">Dell 14" Latitude 5440 Intel Core i5 Ultra 7 Max Laptop -...</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="review-count">174</span>
+                        </div>
+                    </div>
+                    <div class="add-to-cart action-btn">+</div>
+                </div>
+            </a>
 
-
-                <a href="Singel_product.html" class="product-link">
+            <a href="Singel_product.html" class="product-link">
                 <div class="product-card">
                     <div class="badge">Popular</div>
                     <div class="product-image">
@@ -181,18 +106,17 @@
                     </div>
                     <div class="product-content">
                         <p class="product-code">CA$350.00</p>
-                        <p class="product-name">New Apple AirPods Pro 2nd Gen with MagSafe Chargin</p>
+                        <p class="product-name">New Apple AirPods Pro 2nd Gen with MagSafe Charging</p>
                         <div class="product-rating">
                             <span class="stars">★★★★★</span>
                             <span class="review-count">31,096</span>
                         </div>
                     </div>
-
-                    <div class="add-to-cart">+</div>
+                    <div class="add-to-cart action-btn">+</div>
                 </div>
-                </a>
+            </a>
 
-                <a href="Singel_product.html" class="product-link">
+            <a href="Singel_product.html" class="product-link">
                 <div class="product-card">
                     <div class="badge">Hot Deal</div>
                     <div class="product-image">
@@ -206,11 +130,11 @@
                             <span class="review-count">21,807</span>
                         </div>
                     </div>
-                    <div class="add-to-cart">+</div>
+                    <div class="add-to-cart action-btn">+</div>
                 </div>
-                </a>
+            </a>
 
-                <a href="Singel_product.html" class="product-link">
+            <a href="Singel_product.html" class="product-link">
                 <div class="product-card">
                     <div class="badge">Limited</div>
                     <div class="product-image">
@@ -220,15 +144,15 @@
                         <p class="product-code">CA$661.03</p>
                         <p class="product-name">AMD Ryzen 7 7800X3D 8-Core AM5 Desktop Processor</p>
                         <div class="product-rating">
-                            <span class="stars">★★★★★ </span>
+                            <span class="stars">★★★★★</span>
                             <span class="review-count">1,234</span>
                         </div>
                     </div>
-                    <div class="add-to-cart">+</div>
+                    <div class="add-to-cart action-btn">+</div>
                 </div>
-                </a>
+            </a>
 
-                <a href="Singel_product.html" class="product-link">
+            <a href="Singel_product.html" class="product-link">
                 <div class="product-card">
                     <div class="badge">Exclusive</div>
                     <div class="product-image">
@@ -242,18 +166,18 @@
                             <span class="review-count">5,678</span>
                         </div>
                     </div>
-                    <div class="add-to-cart">+</div>
+                    <div class="add-to-cart action-btn">+</div>
                 </div>
-                </a>
-            </div>
+            </a>
         </div>
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">TOP SEARCH</h2>
-                <a href="#" class="view-all">View All <span class="view-all-icon">➔</span></a>
-            </div>
-            <div class="product-grid">
-                <a href="Singel_product.html" class="product-link">
+    </div>
+    <div class="section-container">
+        <div class="section-header">
+            <h2 class="section-title">TOP SEARCH</h2>
+            <a href="#" class="view-all">View All <span class="view-all-icon">➔</span></a>
+        </div>
+        <div class="product-grid">
+            <a href="Singel_product.html" class="product-link">
                 <div class="product-card">
                     <div class="badge">Bestseller</div>
                     <div class="product-image">
@@ -267,45 +191,94 @@
                             <span class="review-count">232</span>
                         </div>
                     </div>
-                    <div class="add-to-cart">+</div>
+                    <div class="add-to-cart action-btn">+</div>
                 </div>
-                </a>
-            </div>
-            <footer>
-                <div class="footer-container">
-                    <div class="footer-section">
-                        <h3 class="footer-title">About Us</h3>
-                        <ul class="footer-links">
-                            <li class="footer-link"><a href="#">Our Story</a></li>
-                            <li class="footer-link"><a href="#">Careers</a></li>
-                            <li class="footer-link"><a href="#">Press</a></li>
-                            <li class="footer-link"><a href="#">Sustainability</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h3 class="footer-title">Customer Service</h3>
-                        <ul class="footer-links">
-                            <li class="footer-link"><a href="#">Contact Us</a></li>
-                            <li class="footer-link"><a href="#">Shipping Information</a></li>
-                            <li class="footer-link"><a href="#">Returns & Exchanges</a></li>
-                            <li class="footer-link"><a href="#">FAQ</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h3 class="footer-title">Legal</h3>
-                        <ul class="footer-links">
-                            <li class="footer-link"><a href="#">Privacy Policy</a></li>
-                            <li class="footer-link"><a href="#">Terms of Service</a></li>
-                            <li class="footer-link"><a href="#">Cookie Policy</a></li>
-                            <li class="footer-link"><a href="#">Accessibility</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p class="copyright">© 2023 Made By Canadians. All rights reserved.</p>
-                </div>
-            </footer>
+            </a>
         </div>
+
+        <div class="form-container">
+            <form>
+                <h1>Contact Form: </h1><br><br><br>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="firstName">First Name*</label>
+                        <input class="form-input" type="text" id="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="lastName">Last Name*</label>
+                        <input class="form-input" type="text" id="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number*</label>
+                        <input class="form-input" type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address*</label>
+                        <input class="form-input" type="email" id="email" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="business">Business Name</label>
+                        <input class="form-input" type="text" id="business">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="website">Website URL</label>
+                        <input class="form-input" type="url" id="website">
+                    </div>
+                </div>
+
+                <div class="form-row" style="margin-bottom: 40px;">
+                    <div class="form-group" style="flex: 1 0 100%;">
+                        <label class="form-label" for="message">Tell us how we can help</label>
+                        <textarea class="form-textarea" id="message"></textarea>
+                    </div>
+                </div>
+
+                <div class="submit-container">
+                    <button type="submit" class="submit-btn">Submit</button>
+                </div>
+            </form>
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3 class="footer-title">About Us</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Our Story</a></li>
+                        <li class="footer-link"><a href="#">Careers</a></li>
+                        <li class="footer-link"><a href="#">Press</a></li>
+                        <li class="footer-link"><a href="#">Sustainability</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Customer Service</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Contact Us</a></li>
+                        <li class="footer-link"><a href="#">Shipping Information</a></li>
+                        <li class="footer-link"><a href="#">Returns & Exchanges</a></li>
+                        <li class="footer-link"><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Legal</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Privacy Policy</a></li>
+                        <li class="footer-link"><a href="#">Terms of Service</a></li>
+                        <li class="footer-link"><a href="#">Cookie Policy</a></li>
+                        <li class="footer-link"><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2023 Made By Canadians. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
     </div>
     <div class="sidebar" id="sidebar">
         <button class="close-sidebar" id="closeSidebar">×</button>
@@ -323,6 +296,29 @@
     document.addEventListener('DOMContentLoaded', () => {
         const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
         document.querySelector('.cart-count').textContent = cartItems.length;
+    });
+</script>
+
+<script>
+    document.querySelectorAll('.action-btn').forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevents <a> click event
+            event.preventDefault(); // Prevents navigation to Singel_product.html
+
+            const productCard = button.closest('.product-card'); // Get the product card
+            const product = {
+                image: productCard.querySelector('.product-image img').src,
+                name: productCard.querySelector('.product-name').textContent,
+                price: productCard.querySelector('.product-code').textContent,
+                time: new Date().toLocaleString()
+            };
+
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.push(product);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            window.location.href = 'cart.html'; // Redirect to cart page
+        });
     });
 </script>
 

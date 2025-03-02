@@ -25,16 +25,16 @@
             <div class="order-summary">
                 <h2 class="summary-title">Order Summary</h2>
                 <div class="summary-item">
-                    <span>Subtotal (3 items):</span>
-                    <span class="subtotal">CA$2,589.97</span>
+                    <span class="item-count">Subtotal (0 items):</span>
+                    <span class="subtotal">CA$0.00</span>
                 </div>
                 <div class="summary-item">
                     <span>Shipping:</span>
-                    <span class="shipping">CA$130.00</span>
+                    <span class="shipping">CA$0.00</span>
                 </div>
                 <div class="summary-item total">
                     <strong>Total:</strong>
-                    <strong class="total-price">CA$2,719.97</strong>
+                    <strong class="total-price">CA$0.00</strong>
                 </div>
 
                 <div class="promo-section">
@@ -73,14 +73,18 @@
                         <p>Continue shopping to add items to your cart</p>
                     </div>
                 `;
-                updateSummary(0);
+                updateSummary(0, 0, 0);
                 return;
             }
     
             cartItems.forEach((item, index) => {
                 const itemElement = document.createElement('div');
                 itemElement.className = 'cart-item';
-                const priceValue = parseFloat(item.price.replace(/[^0-9.]/g, ''));
+                
+                // Ensure quantity exists and is at least 1
+                if (!item.quantity || item.quantity < 1) {
+                    item.quantity = 1;
+                }
     
                 itemElement.innerHTML = `
                     <img src="${item.image}" alt="${item.name}" class="item-image">
@@ -89,7 +93,7 @@
                         <p class="item-price">${item.price}</p>
                         <div class="quantity-controls">
                             <button class="quantity-btn minus" data-index="${index}">-</button>
-                            <span class="quantity">1</span>
+                            <span class="quantity">${item.quantity}</span>
                             <button class="quantity-btn plus" data-index="${index}">+</button>
                         </div>
                         <p class="added-time"><small>Added: ${item.time}</small></p>
@@ -102,6 +106,9 @@
                 container.appendChild(itemElement);
             });
     
+            // Save the updated cart items back to localStorage
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            
             calculateTotal();
             addEventListeners();
         }
@@ -109,54 +116,107 @@
         function calculateTotal() {
             const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
             let subtotal = 0;
+            let totalItems = 0;
             
             cartItems.forEach(item => {
                 const priceValue = parseFloat(item.price.replace(/[^0-9.]/g, ''));
-                subtotal += priceValue;
+                const quantity = item.quantity || 1;
+                subtotal += priceValue * quantity;
+                totalItems += quantity;
             });
     
-            const total = (subtotal + shippingCharge) * (1 - discount); 
+            // Apply shipping charge only if there are items in the cart
+            const shipping = totalItems > 0 ? shippingCharge : 0;
+            const total = (subtotal + shipping) * (1 - discount); 
     
-            updateSummary(subtotal, total);
+            updateSummary(subtotal, total, totalItems);
         }
     
-        function updateSummary(subtotal, total) {
+        function updateSummary(subtotal, total, itemCount) {
+            document.querySelector('.item-count').textContent = `Subtotal (${itemCount} item${itemCount !== 1 ? 's' : ''}):`;
             document.querySelector('.subtotal').textContent = `CA$${subtotal.toFixed(2)}`;
-            document.querySelector('.shipping').textContent = `CA$${shippingCharge.toFixed(2)}`; 
+            
+            // Only show shipping charge if there are items
+            const shipping = itemCount > 0 ? shippingCharge : 0;
+            document.querySelector('.shipping').textContent = `CA$${shipping.toFixed(2)}`; 
             document.querySelector('.total-price').textContent = `CA$${total.toFixed(2)}`;
         }
     
         function addEventListeners() {
+            // Remove item button event listeners
             document.querySelectorAll('.remove-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
-                    const index = btn.dataset.index;
+                    const index = parseInt(btn.dataset.index);
                     if (confirm('Are you sure you want to remove this item?')) {
                         let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
                         cartItems.splice(index, 1);
                         localStorage.setItem('cartItems', JSON.stringify(cartItems));
                         updateCart();
+                        showToast('Item removed from cart');
                     }
                 });
             });
     
+            // Quantity adjustment button event listeners
             document.querySelectorAll('.quantity-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
-                    calculateTotal();
+                    const index = parseInt(btn.dataset.index);
+                    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                    
+                    if (!cartItems[index].quantity) {
+                        cartItems[index].quantity = 1;
+                    }
+                    
+                    if (btn.classList.contains('plus')) {
+                        cartItems[index].quantity++;
+                    } else if (btn.classList.contains('minus') && cartItems[index].quantity > 1) {
+                        cartItems[index].quantity--;
+                    }
+                    
+                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                    updateCart();
                 });
             });
     
+            // Promo code button event listener
             document.querySelector('.apply-btn').addEventListener('click', applyPromo);
         }
     
         function applyPromo() {
-            const promoCode = document.querySelector('.promo-input').value;
-            if (promoCode === 'DISCOUNT10') {
+            const promoCode = document.querySelector('.promo-input').value.trim();
+            if (promoCode.toUpperCase() === 'DISCOUNT10') {
                 discount = 0.1;
                 calculateTotal();
-                alert('Promo code applied successfully!');
+                showToast('Promo code applied: 10% discount');
             } else {
-                alert('Invalid promo code');
+                showToast('Invalid promo code', false);
             }
+        }
+        
+        function showToast(message, isSuccess = true) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            // Set icon based on success/failure
+            const icon = toast.querySelector('i');
+            if (isSuccess) {
+                icon.className = 'fas fa-check-circle';
+                icon.style.color = '#4CAF50';
+            } else {
+                icon.className = 'fas fa-exclamation-circle';
+                icon.style.color = '#F44336';
+            }
+            
+            toastMessage.textContent = message;
+            toast.style.visibility = 'visible';
+            toast.style.opacity = '1';
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => {
+                    toast.style.visibility = 'hidden';
+                }, 500);
+            }, 3000);
         }
     
         document.addEventListener('DOMContentLoaded', updateCart);

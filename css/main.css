@@ -110,11 +110,16 @@
             color: var(--white);
             text-decoration: none;
             border-radius: 25px;
-            font-size: 14px;
+            font-size: 17px;
+            font-family: font_MBC;
             transition: var(--transition);
             font-weight: 500;
             letter-spacing: 0.5px;
             white-space: nowrap;
+        }
+        @font-face {
+            font-family: 'font_MBC';
+            src: url('font/Uni_Sans_Heavy_Caps.ttf');
         }
         
         .nav-item:hover:not(.active) {
@@ -843,5 +848,159 @@
         .product-link:hover {
             text-decoration: none; /* Ensures no underline appears on hover */
         }
+        .cart-container {
+            position: absolute; 
+            right: 3%;
+            top: 3.5%;
+            width: 45px;
+            cursor: pointer;
+            display: inline-block;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .cart-container img {
+            width: 100%;
+            display: block;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: red;
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .cart-container {
+                position: absolute; 
+                right: 6%;
+                top: 7%;
+                width: 35px;
+            }
+        
+            .cart-count {
+                font-size: 12px;
+                width: 22px;
+                height: 22px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .cart-container {
+                position: absolute; 
+                right: 5%;
+                top: 3%;
+                width: 35px;
+            }
+        
+            .cart-count {
+                font-size: 10px;
+                width: 22px;
+                height: 22px;
+            }
+        }  
+        .form-container {
+            width: 90%;
+            max-width: 1100px;
+            padding: 40px;
+            border-radius: 4px;
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
+            gap: 40px;
+        }
+        
+        .form-group {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .form-label {
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+        
+        .form-input {
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+            color: white;
+            font-size: 16px;
+            padding: 8px 0;
+            outline: none;
+        }
+        
+        .form-textarea {
+            width: 100%;
+            height: 120px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+            color: white;
+            font-size: 16px;
+            padding: 8px 0;
+            outline: none;
+            resize: none;
+        }
+        
+        .submit-container {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .submit-btn {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 50px;
+            padding: 15px 60px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 30px 20px;
+            }
+            
+            .form-row {
+                margin-bottom: 40px;
+                gap: 30px;
+            }
+            
+            .form-group {
+                flex: 100%;
+            }
+            
+            .submit-btn {
+                width: 100%;
+            }
+        } 
 
         
