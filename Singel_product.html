@@ -119,21 +119,79 @@
 <script src="js/singel_product.js"></script>
 
 <script>
-    document.querySelectorAll('.action-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            const product = {
-                image: document.querySelector('.main-image').src,
-                name: document.querySelector('.product-info p').textContent,
-                price: document.querySelector('.current-price').textContent,
-                time: new Date().toLocaleString()
-            };
+    // Wait for the document to be fully loaded
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the relevant elements
+        const quantityInput = document.querySelector('.quantity-input');
+        const quantityButtons = document.querySelectorAll('.quantity-btn');
 
-            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-            cartItems.push(product);
-            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        // Clear any existing event listeners by cloning the parent element
+        const parent = quantityInput.parentElement;
+        const newParent = parent.cloneNode(true);
+        parent.parentNode.replaceChild(newParent, parent);
 
-            window.location.href = 'cart.html';
+        // Get the elements again from the new parent
+        const newQuantityInput = newParent.querySelector('.quantity-input');
+        const newQuantityButtons = newParent.querySelectorAll('.quantity-btn');
+
+        // Add minus button click handler
+        newQuantityButtons[0].addEventListener('click', function (e) {
+            e.preventDefault();
+            // Get current value
+            let value = parseInt(newQuantityInput.value);
+            // Decrement if greater than 1
+            if (value > 1) {
+                newQuantityInput.value = value - 1;
+            }
+            return false; // Prevent any other handlers
+        });
+
+        // Add plus button click handler
+        newQuantityButtons[1].addEventListener('click', function (e) {
+            e.preventDefault();
+            // Get current value
+            let value = parseInt(newQuantityInput.value);
+            // Increment by exactly 1
+            newQuantityInput.value = value + 1;
+            return false; // Prevent any other handlers
+        });
+
+        // Fix the "Add to Cart" functionality
+        const actionButtons = document.querySelectorAll('.action-btn');
+
+        // Clear existing event listeners on action buttons
+        actionButtons.forEach(button => {
+            const newButton = button.cloneNode(true);
+            button.parentNode.replaceChild(newButton, button);
+
+            // Add new event listener
+            newButton.addEventListener('click', function () {
+                // Get current quantity
+                const qty = parseInt(newQuantityInput.value);
+
+                // Create product object
+                const product = {
+                    image: document.querySelector('.main-image').src,
+                    name: document.querySelector('.product-info p').textContent,
+                    price: document.querySelector('.current-price').textContent,
+                    quantity: qty, // Use the current quantity value
+                    time: new Date().toLocaleString()
+                };
+
+                // Get existing cart items
+                let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+                // Add new product
+                cartItems.push(product);
+
+                // Save to localStorage
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+                // Redirect to cart
+                window.location.href = 'cart.html';
+            });
         });
     });
 </script>
+
 </html>

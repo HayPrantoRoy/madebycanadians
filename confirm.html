@@ -2,15 +2,19 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Confirmation</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/confirm.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Order Confirmation</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="css/confirm.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+        <link rel="icon" type="image/x-icon" href="images/logo.png">
+    </head>
 </head>
 
 <body>
@@ -34,15 +38,15 @@
                     </div>
                     <div class="summary-row">
                         <span>Order Number:</span>
-                        <strong>#TS235689</strong>
+                        <strong id="orderNumber">#TS235689</strong>
                     </div>
                     <div class="summary-row">
                         <span>Order Date:</span>
-                        <span>October 25, 2023</span>
+                        <span id="orderDate">October 25, 2023</span>
                     </div>
                     <div class="summary-row">
                         <span>Expected Delivery:</span>
-                        <span>October 30, 2023</span>
+                        <span id="deliveryDate">October 30, 2023</span>
                     </div>
                 </div>
 
@@ -53,11 +57,11 @@
                         </div>
                         <h2>Shipping Details</h2>
                     </div>
-                    <p><strong>John Doe</strong></p>
-                    <p>123 Tech Street</p>
-                    <p>Tech City, TC 12345</p>
-                    <p>Canada</p>
-                    <p class="email">john.doe@example.com</p>
+                    <p><strong id="shippingName">John Doe</strong></p>
+                    <p id="shippingAddress">123 Tech Street</p>
+                    <p id="shippingCity">Tech City, TC 12345</p>
+                    <p id="shippingCountry">Canada</p>
+                    <p class="email" id="shippingEmail">john.doe@example.com</p>
                 </div>
 
                 <div class="detail-card">
@@ -67,7 +71,7 @@
                         </div>
                         <h2>Payment Method</h2>
                     </div>
-                    <div class="payment-method">
+                    <div class="payment-method" id="paymentDetails">
                         <p><strong>Cash on Delivery</strong></p>
                         <p>Pay when you receive your order</p>
                     </div>
@@ -75,36 +79,32 @@
             </div>
 
             <div class="order-summary-section">
-                <div class="detail-header">
-                    <div class="detail-icon">
-                        <i class="fas fa-box-open"></i>
-                    </div>
-                    <h2>Order Summary</h2>
-                </div>
+                <!-- ... (keep order summary header) ... -->
 
-                <div class="order-items">
-                    <div class="order-item">
-                        <img src="images/s25.png" alt="Product" class="item-image">
-                        <div>
-                            <h3>Samsung Galaxy S25 Ultra</h3>
-                            <p>Qty: 1</p>
-                            <p class="item-price">CA$1,859.94</p>
-                        </div>
-                    </div>
+                <div class="order-items" id="confirmationItems">
+                    <!-- Dynamic items will be inserted here -->
                 </div>
 
                 <div class="price-summary">
                     <div class="summary-row">
                         <span>Subtotal:</span>
-                        <span>CA$1,859.94</span>
+                        <span id="confirmSubtotal">CA$1,859.94</span>
                     </div>
                     <div class="summary-row">
                         <span>Shipping:</span>
-                        <span>CA$130.00</span>
+                        <span id="confirmShipping">CA$130.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax:</span>
+                        <span id="confirmTax">CA$258.59</span>
+                    </div>
+                    <div class="summary-row cod-fee" style="display: none;">
+                        <span>COD Fee:</span>
+                        <span id="codFee">CA$20.00</span>
                     </div>
                     <div class="summary-row total">
                         <strong>Total:</strong>
-                        <strong>CA$1,989.94</strong>
+                        <strong id="confirmTotal">CA$2,268.53</strong>
                     </div>
                 </div>
 
@@ -153,7 +153,6 @@
             </button>
         </div>
     </div>
-
 
     <script>
         function generatePDF() {
@@ -206,6 +205,92 @@
             }, 500);
         }
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Generate random order number
+            const orderNumber = '#TS' + Math.floor(100000 + Math.random() * 900000);
+            document.getElementById('orderNumber').textContent = orderNumber;
+
+            // Set order and delivery dates
+            const now = new Date();
+            document.getElementById('orderDate').textContent = now.toLocaleDateString('en-US', {
+                year: 'numeric', month: 'long', day: 'numeric'
+            });
+
+            const deliveryDate = new Date(now);
+            deliveryDate.setDate(now.getDate() + 5);
+            document.getElementById('deliveryDate').textContent = deliveryDate.toLocaleDateString('en-US', {
+                year: 'numeric', month: 'long', day: 'numeric'
+            });
+
+            // Retrieve and display shipping details
+            const shippingInfo = JSON.parse(localStorage.getItem('shippingInfo')) || {};
+            document.getElementById('shippingName').textContent = shippingInfo.fullName || 'Not Provided';
+            document.getElementById('shippingAddress').textContent = shippingInfo.streetAddress || 'Not Provided';
+            document.getElementById('shippingCity').textContent = `${shippingInfo.city || ''}, ${shippingInfo.state || ''} ${shippingInfo.zipCode || ''}`.trim();
+            document.getElementById('shippingCountry').textContent = shippingInfo.country || 'Not Provided';
+            document.getElementById('shippingEmail').textContent = shippingInfo.email || 'Not Provided';
+
+            // Retrieve payment method
+            const paymentMethod = localStorage.getItem('paymentMethod') || 'cod';
+            const paymentDetails = document.getElementById('paymentDetails');
+            if (paymentMethod === 'credit_card') {
+                paymentDetails.innerHTML = `
+                    <p><strong>Credit Card</strong></p>
+                    <p>Ending in **** ${localStorage.getItem('lastFourDigits') || '4242'}</p>
+                `;
+            } else if (paymentMethod === 'paypal') {
+                paymentDetails.innerHTML = `<p><strong>PayPal</strong></p>`;
+            } else {
+                paymentDetails.innerHTML = `
+                    <p><strong>Cash on Delivery</strong></p>
+                    <p>Additional CA$20.00 fee applied</p>
+                `;
+            }
+
+            // Load order items
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const orderItemsContainer = document.getElementById('confirmationItems');
+
+            const parsePrice = (price) => parseFloat(price.replace('CA$', '').replace(/,/g, ''));
+            const formatPrice = (amount) => `CA$${amount.toLocaleString('en-CA', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            })}`;
+
+            orderItemsContainer.innerHTML = cartItems.map(item => `
+                <div class="order-item">
+                    <img src="${item.image}" alt="${item.name}" class="item-image">
+                    <div>
+                        <h3>${item.name}</h3>
+                        <p>Qty: ${item.quantity}</p>
+                        <p class="item-price">${formatPrice(parsePrice(item.price) * item.quantity)}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            // Calculate totals
+            const shipping = 130.00;
+            const codFee = paymentMethod === 'cod' ? 20.00 : 0;
+            const subtotal = cartItems.reduce((acc, item) => acc + (parsePrice(item.price) * item.quantity), 0);
+            const tax = (subtotal + shipping) * 0.13;
+            const total = subtotal + shipping + tax + codFee;
+
+            // Update totals display
+            document.getElementById('confirmSubtotal').textContent = formatPrice(subtotal);
+            document.getElementById('confirmShipping').textContent = formatPrice(shipping);
+            document.getElementById('confirmTax').textContent = formatPrice(tax);
+            document.getElementById('confirmTotal').textContent = formatPrice(total);
+
+            if (paymentMethod === 'cod') {
+                document.querySelector('.cod-fee').style.display = 'flex';
+                document.getElementById('codFee').textContent = formatPrice(20.00);
+            }
+        });
+    </script>
+
+
 </body>
 
 </html>
