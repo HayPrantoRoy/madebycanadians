@@ -7,19 +7,46 @@
     <link rel="icon" type="image/x-icon" href="images/logo.png">
     <title>Contact Form</title>
     <style>
-        
-body {
-    font-family: 'Arial', sans-serif !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    min-height: 100vh !important;
-    padding: 20px !important;
-}
-
+        @font-face {
+            font-family: 'font_MBC_unisans';
+            src: url('font/Uni_Sans_Heavy_Caps.ttf');
+        }
+        .sidebar-nav-item{
+            font-family: font_MBC_inter !important;
+        }
+        @font-face {
+            font-family: 'font_MBC_inter';
+            src: url('font/Inter-VariableFont_opsz,wght.ttf');
+        }
+        .form-container {
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+        }
     </style>
 </head>
 <body>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-items">
+                <a href="#" class="nav-item">Clothing & Apparel</a>
+                <a href="#" class="nav-item">Food & Beverages</a>
+                <a href="#" class="nav-item">Home & Living</a>
+                <a href="#" class="nav-item">Beauty & Skincare</a>
+                <a href="#" class="nav-item">Electronics</a>
+                <a href="#" class="nav-item">Toys & Games</a>
+                <a href="#" class="nav-item">Tech & Getgets</a>
+
+            </div>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+            <span class="menu-icon">☰</span>
+        </button>
+        </div>
+    </nav>
+    
     <div class="form-container">
         <form>
             <h1>Contact Form: </h1><br><br><br>
@@ -68,5 +95,44 @@ body {
             </div>
         </form>
     </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="policy.html">Policy</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="copyright">
+                © 2025 madebycanadians.ca
+            </div>
+        </div>
+    </footer>
+</div>
+</div>
+<div class="sidebar" id="sidebar">
+    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+        <img src="images/logo.png" alt="Company Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+        <span style="font-size: 18px; font-weight: bold;">Made By Canadians</span>
+    </div>
+
+    <button class="close-sidebar" id="closeSidebar">×</button>
+    <a href="#" class="sidebar-nav-item active">Clothing & Apparel</a>
+    <a href="#" class="sidebar-nav-item">Food & Beverages</a>
+    <a href="#" class="sidebar-nav-item">Home & Living</a>
+    <a href="#" class="sidebar-nav-item">Beauty & Skincare</a>
+    <a href="#" class="sidebar-nav-item">Tech & Gadgets</a>
+    <a href="#" class="sidebar-nav-item">Outdoor & Sporting Goods</a>
+    <div class="sidebar-divider" style="border-top: 1px solid #ccc; margin: 10px 0;"></div>
+
+    <div style="display: flex; justify-content: space-around; padding: 4px 0;">
+        <a href="index.html" style="text-decoration: none; color: white; font-size: 14px;">Home</a>
+        <a href="about.html" style="text-decoration: none; color: white; font-size: 14px;">About</a>
+        <a href="policy.html" style="text-decoration: none; color: white; font-size: 14px;">Policy</a>
+        <a href="contact.html" style="text-decoration: none; color: white; font-size: 14px;">Contact</a>
+    </div>
+</div>
 </body>
+<script src="js/main.js"></script>
 </html>

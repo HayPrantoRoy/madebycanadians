@@ -1,153 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="images/logo.png">
-    <title>About Us</title>
+    <title>Made By Canadians</title>
+    <link rel="stylesheet" href="css/about.css">
     <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #f9f9f9;
+        @font-face {
+            font-family: 'font_MBC_unisans';
+            src: url('font/Uni_Sans_Heavy_Caps.ttf');
         }
-        
-        .page-container {
-            background-color: white;
-            padding: 40px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            border-radius: 5px;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #e63946;
-            padding-bottom: 20px;
-        }
-        
-        .logo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        h1 {
-            color: #e63946;
-            font-size: 2.5rem;
-            margin: 10px 0;
-        }
-        
-        h2 {
-            color: #1d3557;
-            font-size: 1.8rem;
-            margin-top: 40px;
-            margin-bottom: 20px;
-        }
-        
-        p {
-            margin-bottom: -10px;
-            text-align: justify;
-        }
-        
-        strong {
-            color: #1d3557;
-        }
-        
-        .roadmap {
-            background-color: #f1faee;
-            padding: 25px;
-            border-radius: 5px;
-            margin-top: 40px;
-        }
-        
-        .roadmap h2 {
-            margin-top: 0;
-            color: #e63946;
-        }
-        
-        ol {
-            padding-left: 20px;
-        }
-        
-        li {
-            margin-bottom: 15px;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.9rem;
-            color: #777;
-            border-top: 1px solid #ddd;
-            padding-top: 20px;
-        }
-        
-        .maple-leaf {
-            width: 20px;
-            height: 20px;
-            display: inline-block;
-            color: #e63946;
-            margin: 0 5px;
-        }
-        
-        .highlight {
-            background-color: #f8d7da;
-            padding: 0 3px;
-            border-radius: 3px;
+
+        @font-face {
+            font-family: 'font_MBC_inter';
+            src: url('font/Inter-VariableFont_opsz,wght.ttf');
         }
     </style>
 </head>
+
 <body>
-    <div class="page-container">
-        <header>
-            <div class="logo">
-                <span><img src="images/logo.png" width="150px"></span>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-items">
+                <a href="#" class="nav-item">Clothing & Apparel</a>
+                <a href="#" class="nav-item">Food & Beverages</a>
+                <a href="#" class="nav-item">Home & Living</a>
+                <a href="#" class="nav-item">Beauty & Skincare</a>
+                <a href="#" class="nav-item">Electronics</a>
+                <a href="#" class="nav-item">Toys & Games</a>
+                <a href="#" class="nav-item">Tech & Getgets</a>
+
             </div>
-            <h1>Made by Canadians</h1>
-            <p style="font-size: 30px;">About:</p>
-        </header>
-        
-        <main>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+            <span class="menu-icon">☰</span>
+        </button>
+        </div>
+    </nav>
+
+    <div class="about-content">
+        <div class="about-hero">
+            <h1>About Us</h1>
+        </div>
+
+        <div class="about-section">
             <p>
                 The <strong>"Made by Canadians"</strong> initiative was founded to spotlight locally crafted products and empower the businesses behind them. As global supply chains dominate markets, this platform redirects attention to the rich diversity of goods originating from Canada. By promoting these products, we aim to strengthen domestic industries, support local jobs, and foster national pride among consumers.
             </p>
-            
+        </div><br>
+
+        <div class="about-section">
             <p>
                 Inspired by the <strong>"Buy Canadian, Bye American"</strong> movement, our platform encourages thoughtful purchasing decisions. Choosing Canadian-made goods ensures not only quality but also direct support for local economies, creating a more resilient and self-sufficient marketplace. This movement reflects a growing awareness of how everyday purchases can drive positive change within communities.
             </p>
-            
+        </div><br>
+
+        <div class="about-section">
             <p>
                 <strong>"Made by Canadians"</strong> connects conscientious shoppers with authentic Canadian brands across categories like fashion, food, technology, and home goods. Through this platform, we're building a community that values local enterprise, ensuring that the benefits of consumer spending remain within Canada and contribute to its long-term prosperity.
             </p>
-            
-            <div class="roadmap">
-                <h2>Our 3E Roadmap</h2>
-                <ol>
-                    <li><strong>Enable Direct On-Site Purchases</strong> – Develop a seamless in-house purchasing system to eliminate reliance on foreign platforms and minimizing costs for Canadians.</li>
-                    <li><strong>Expand Offerings Through Direct Sourcing</strong> – Partner directly with local suppliers and manufacturers to cut out middlemen, ensuring better quality and pricing.</li>
-                    <li><strong>Establish a Sustainable Logistics and Delivery Network</strong> – Build an efficient, eco-friendly end-to-end supply chain to support long-term growth and reliability, removing dependency on foreign owned service providers.</li>
-                </ol>
-            </div>
-        </main>
+        </div><br><br>
+
+        <div class="roadmap">
+            <h2>Our 3E Roadmap</h2>
+            <ol class="roadmap-numbered">
+                <li>
+                    <strong>Enable Direct On-Site Purchases</strong> – Develop a seamless in-house purchasing system to eliminate reliance on foreign platforms and minimizing costs for Canadians.
+                </li><br>
+                <li>
+                    <strong>Expand Offerings Through Direct Sourcing</strong> – Partner directly with local suppliers and manufacturers to cut out middlemen, ensuring better quality and pricing.
+                </li><br>
+                <li>
+                    <strong>Establish a Sustainable Logistics and Delivery Network</strong> – Build an efficient, eco-friendly end-to-end supply chain to support long-term growth and reliability, removing dependency on foreign owned service providers.
+                </li><br>
+            </ol>
+        </div>
+    </div>
+    
+
         
         <footer>
-            <p>
-                <span class="maple-leaf">🍁</span> Made by Canadians, For Canadians <span class="maple-leaf">🍁</span>
-            </p>
-            <p>© 2025 Made by Canadians. All rights reserved.</p>
+            <div class="footer-container">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="policy.html">Policy</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="copyright">
+                    © 2025 madebycanadians.ca
+                </div>
+            </div>
         </footer>
     </div>
+    </div>
+    <div class="sidebar" id="sidebar">
+        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+            <img src="images/logo.png" alt="Company Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+            <span style="font-size: 18px; font-weight: bold;">Made By Canadians</span>
+        </div>
+    
+        <button class="close-sidebar" id="closeSidebar">×</button>
+        <a href="#" class="sidebar-nav-item active">Clothing & Apparel</a>
+        <a href="#" class="sidebar-nav-item">Food & Beverages</a>
+        <a href="#" class="sidebar-nav-item">Home & Living</a>
+        <a href="#" class="sidebar-nav-item">Beauty & Skincare</a>
+        <a href="#" class="sidebar-nav-item">Tech & Gadgets</a>
+        <a href="#" class="sidebar-nav-item">Outdoor & Sporting Goods</a>
+        <div class="sidebar-divider" style="border-top: 1px solid #ccc; margin: 10px 0;"></div>
+    
+        <div style="display: flex; justify-content: space-around; padding: 4px 0;">
+            <a href="index.html" style="text-decoration: none; color: white; font-size: 14px;">Home</a>
+            <a href="about.html" style="text-decoration: none; color: white; font-size: 14px;">About</a>
+            <a href="policy.html" style="text-decoration: none; color: white; font-size: 14px;">Policy</a>
+            <a href="contact.html" style="text-decoration: none; color: white; font-size: 14px;">Contact</a>
+        </div>
+    </div>
+    
 </body>
+<script src="js/main.js"></script>
+
+
+
 </html>
