@@ -102,7 +102,37 @@ body {
     flex-direction: row;
     align-items: center;
 }
+.nav-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    max-width: 100%;
+    scrollbar-width: thin; /* Firefox scrollbar */
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
 
+/* Webkit (Chrome, Safari) scrollbar styling */
+.nav-container::-webkit-scrollbar {
+    height: 6px; /* Thin horizontal scrollbar */
+}
+
+.nav-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.nav-container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.nav-items {
+    display: inline-flex; /* Allow items to stay on one line */
+    min-width: 100%; /* Ensure full width */
+}
+
+@media screen and (max-width: 1200px) {
+    .nav-container {
+        padding: 0 10px; /* Adjust padding for smaller screens */
+    }
+}
 .nav-item {
     margin: 0 8px;
     padding: 10px 12px;
